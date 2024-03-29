@@ -18,7 +18,7 @@ const Dashboard = () => {
           <Link to="/">
             <Button variant="warning">
               {" "}
-              <FaHome className="inline" /> হোম
+              <FaHome className="inline" /> স্টোর
             </Button>
           </Link>
         </div>
