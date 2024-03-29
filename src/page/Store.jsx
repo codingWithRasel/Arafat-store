@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiTwotoneDashboard } from "react-icons/ai";
 import { Button, Container, Form, Table } from "react-bootstrap";
 import ProductList from "../Components/ProductList";
 import ClientProducts from "../Components/ClientProducts";
@@ -21,13 +22,16 @@ const Store = () => {
             <button onClick={() => setActive(true)}>পণ্যের তালিকা</button>
           </Link>
           <Link
-          
             to="/dashboard"
             className={`w-full text-center rounded-md p-2 ${
-              active ? "bg-slate-300" : ""
+              active ? "bg-slate-100" : ""
             }`}
           >
-            <button onClick={() => setActive(false)}> ড্যাশবোর্ড</button>
+            <button onClick={() => setActive(false)}>
+              {" "}
+              <AiTwotoneDashboard className="inline mb-1" />
+              ড্যাশবোর্ড
+            </button>
           </Link>
         </div>
         <Outlet />

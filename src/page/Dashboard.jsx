@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaHome } from "react-icons/fa";
+
 import { Button, Container, Form, Table } from "react-bootstrap";
 import { useMenuContext } from "../Context/MenuContext";
 import { Link } from "react-router-dom";
@@ -14,7 +16,10 @@ const Dashboard = () => {
       <Container>
         <div className=" flex my-1 text-xl">
           <Link to="/">
-            <Button variant="warning">হোম</Button>
+            <Button variant="warning">
+              {" "}
+              <FaHome className="inline" /> হোম
+            </Button>
           </Link>
         </div>
         <div className="flex gap-2">
