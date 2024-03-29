@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     <div className=" font-kalpurush">
       <h1 className="bg-black font-kalpurush text-white text-center py-3 text-4xl font-bold">
-        আল-আরাফাত স্টোর (ড্যাশবোর্ড)
+        ড্যাশবোর্ড
       </h1>
 
       <Container>
