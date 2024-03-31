@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
-
 import { Button, Container, Form, Table } from "react-bootstrap";
-import { useMenuContext } from "../Context/MenuContext";
 import { Link } from "react-router-dom";
-const Dashboard = () => {
+const Dashboard = (Props) => {
   const [search, setSearch] = useState("");
-  const { data } = useMenuContext();
+  const { data } = Props;
   return (
-    <div className=" font-kalpurush">
+    <div>
       <h1 className="bg-black font-kalpurush text-white text-center py-3 text-4xl font-bold">
         ড্যাশবোর্ড
       </h1>
 
       <Container>
-        <div className=" flex my-1 text-xl">
+        <div className=" flex  text-xl my-1">
           <Link to="/">
             <Button variant="warning">
               {" "}
@@ -22,7 +20,7 @@ const Dashboard = () => {
             </Button>
           </Link>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 my-1">
           <Form.Control
             type="text"
             placeholder="এখানে সার্চ করুন"

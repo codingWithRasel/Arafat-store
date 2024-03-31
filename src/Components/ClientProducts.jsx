@@ -1,13 +1,27 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-import { Button, Container, Form, Table } from "react-bootstrap";
-import { useMenuContext } from "../Context/MenuContext";
-const ClientProducts = () => {
-  const { clientList, setClientList, data } = useMenuContext();
+import { Button, Form, Table } from "react-bootstrap";
+
+const ClientProducts = (Props) => {
+  const { clientList, handleQty } = Props;
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
+
+  const [subtotal, setSubtotal] = useState(null);
+
+  const handlePrice = () => {
+    let ans = 0;
+    clientList.map((item) => {
+      ans += item.qty * item.rate;
+    });
+    setSubtotal(ans);
+  };
+  useEffect(() => {
+    handlePrice();
+  });
+
   const emtpyMessage = "কোন পণ্য যুক্ত করা হয়নি!!!";
   return (
     <div>
@@ -28,34 +42,34 @@ const ClientProducts = () => {
               </tr>
             </thead>
             <tbody>
-              {clientList &&
-                clientList.map((m, i) => {
-                  return (
-                    <tr key={i}>
-                      <td>{i + 1}</td>
-                      <td>{m.name}</td>
-                      <td>
-                        {m.rate}
-                        <sub className=" text-[10px]">/{m.unit}</sub>
-                      </td>
-                      <td className="align-middle p-0 px-1 w-[15%]">
-                        <input
-                          type="number"
-                          className=" outline-none text-center rounded-lg p-1  w-full h-full"
-                          placeholder={1}
-                        />
-                      </td>
-                      <td>{}</td>
-                    </tr>
-                  );
-                })}
+              {clientList.map((m, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{i + 1}</td>
+                    <td>{m.name}</td>
+                    <td>
+                      {m.rate}
+                      <sub className=" text-[10px]">/{m.unit}</sub>
+                    </td>
+                    <td className="align-middle p-0 px-1 w-[15%]">
+                      <Form.Control
+                        className="bg-transparent text-center"
+                        type="number"
+                        value={m.qty}
+                        onChange={(e) => handleQty(e.target.value, m)}
+                      />
+                    </td>
+                    <td>{m.qty * m.rate}</td>
+                  </tr>
+                );
+              })}
             </tbody>
             <tfoot>
               <tr>
                 <th className=" text-right" colSpan={4}>
                   সর্বমোট
                 </th>
-                <th>{} টাকা</th>
+                <th>{subtotal} টাকা</th>
               </tr>
             </tfoot>
           </Table>

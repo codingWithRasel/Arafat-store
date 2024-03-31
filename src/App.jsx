@@ -1,26 +1,29 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Store from "./page/Store";
-import { MenuContextProvider } from "./Context/MenuContext";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import Store from "./page/Store";
 import Dashboard from "./page/Dashboard";
-import Banner from "./Components/Banner";
-import ProductList from "./Components/ProductList";
-import ClientProducts from "./Components/ClientProducts";
 
 const App = () => {
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://store-server-wodd.onrender.com/user")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <MenuContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className=" font-kalpurush">
         <Routes>
-          <Route path="/" element={<Store />}>
-            <Route path="" element={<ProductList />} />
-            <Route path="clientProducts" element={<ClientProducts />} />
-          </Route>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Store data={data} />}></Route>
+          <Route path="/dashboard" element={<Dashboard data={data} />} />
         </Routes>
-      </BrowserRouter>
-    </MenuContextProvider>
+      </div>
+    </BrowserRouter>
   );
 };
 
