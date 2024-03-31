@@ -4,10 +4,6 @@ import { Button, Form, Table } from "react-bootstrap";
 
 const ClientProducts = (Props) => {
   const { clientList, handleQty, search } = Props;
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
 
   const [subtotal, setSubtotal] = useState(null);
 
@@ -30,7 +26,7 @@ const ClientProducts = (Props) => {
           {emtpyMessage}
         </p>
       ) : (
-        <div ref={componentRef}>
+        <div>
           <Table className=" text-center text-sm" striped bordered hover>
             <thead>
               <tr>
@@ -57,7 +53,7 @@ const ClientProducts = (Props) => {
                       </td>
                       <td className="align-middle p-0 px-1 w-[15%]">
                         <Form.Control
-                          className="bg-transparent text-center"
+                          className="bg-transparent text-center rounded-full"
                           type="number"
                           value={m.qty}
                           onChange={(e) => handleQty(e.target.value, m)}
@@ -79,11 +75,6 @@ const ClientProducts = (Props) => {
           </Table>
         </div>
       )}
-      <div className=" absolute bottom-5 right-5">
-        <Button variant="success" onClick={handlePrint}>
-          প্রিন্ট করুন
-        </Button>
-      </div>
     </div>
   );
 };
