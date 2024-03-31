@@ -61,6 +61,7 @@ const Store = (Props) => {
             placeholder="এখানে সার্চ করুন"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            disabled={active ? false : true}
           />
           <Button
             className=" whitespace-nowrap"
@@ -74,7 +75,11 @@ const Store = (Props) => {
           <ProductList data={data} handleAdd={handleAdd} search={search} />
         </div>
         <div className={active ? "hidden" : ""}>
-          <ClientProducts handleQty={handleQty} clientList={clientList} />
+          <ClientProducts
+            handleQty={handleQty}
+            clientList={clientList}
+            search={search}
+          />
         </div>
       </Container>
     </div>

@@ -3,7 +3,7 @@ import { useReactToPrint } from "react-to-print";
 import { Button, Form, Table } from "react-bootstrap";
 
 const ClientProducts = (Props) => {
-  const { clientList, handleQty } = Props;
+  const { clientList, handleQty, search } = Props;
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -42,27 +42,31 @@ const ClientProducts = (Props) => {
               </tr>
             </thead>
             <tbody>
-              {clientList.map((m, i) => {
-                return (
-                  <tr key={i}>
-                    <td>{i + 1}</td>
-                    <td>{m.name}</td>
-                    <td>
-                      {m.rate}
-                      <sub className=" text-[10px]">/{m.unit}</sub>
-                    </td>
-                    <td className="align-middle p-0 px-1 w-[15%]">
-                      <Form.Control
-                        className="bg-transparent text-center"
-                        type="number"
-                        value={m.qty}
-                        onChange={(e) => handleQty(e.target.value, m)}
-                      />
-                    </td>
-                    <td>{m.qty * m.rate}</td>
-                  </tr>
-                );
-              })}
+              {clientList
+                .filter((f) => {
+                  return f.name.includes(search);
+                })
+                .map((m, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{i + 1}</td>
+                      <td>{m.name}</td>
+                      <td>
+                        {m.rate}
+                        <sub className=" text-[10px]">/{m.unit}</sub>
+                      </td>
+                      <td className="align-middle p-0 px-1 w-[15%]">
+                        <Form.Control
+                          className="bg-transparent text-center"
+                          type="number"
+                          value={m.qty}
+                          onChange={(e) => handleQty(e.target.value, m)}
+                        />
+                      </td>
+                      <td>{m.qty * m.rate}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
             <tfoot>
               <tr>
