@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
-import { useMenuContext } from "../../assets/DataContext";
+import { useMenuContext } from "../assets/DataContext";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { LiaStoreAltSolid } from "react-icons/lia";

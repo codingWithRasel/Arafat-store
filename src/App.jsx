@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Store from "./components/AlArafat/Store";
+import Store from "./Pages/Store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MenuContextProvider } from "./assets/DataContext";
-import Dashboard from "./components/AlArafat/Dashboard";
-import CustomerTable from "./components/AlArafat/CustomerTable";
-import ProductTable from "./components/AlArafat/ProductTable";
+import Dashboard from "./Pages/Dashboard";
+import CustomerTable from "./components/CustomerTable";
+import ProductTable from "./components/ProductTable";
 
 function App() {
   return (

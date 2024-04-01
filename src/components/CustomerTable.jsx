@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
-import { useMenuContext } from "../../assets/DataContext";
+import { useMenuContext } from "../assets/DataContext";
 const CustomerTable = () => {
   const { clientList, handleQty, calculateTotalPrice } = useMenuContext();
   return (
@@ -12,7 +12,7 @@ const CustomerTable = () => {
           <tr>
             <th className=" px-0 w-5">ক্র</th>
             <th className=" px-0">পন্যের নাম</th>
-            <th className=" px-0 w-10">দর</th>
+            <th className=" px-0 w-12">দর</th>
             <th className="px-0 w-16">পরিমাণ</th>
             <th className=" px-0 w-16">মোট </th>
           </tr>
