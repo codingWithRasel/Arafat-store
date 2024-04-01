@@ -10,7 +10,7 @@ const ProductTable = () => {
     <Table striped bordered hover className=" text-sm text-center">
       <thead>
         <tr>
-          <th>পন্যের নাম</th>
+          <th>পণ্যের নাম</th>
           <th>দর</th>
           <th>কার্যক্রম</th>
         </tr>

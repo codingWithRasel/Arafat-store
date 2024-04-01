@@ -9,7 +9,7 @@ const CustomerTable = () => {
   const { clientList, handleQty, calculateTotalPrice } = useMenuContext();
   return (
     <div className=" mt-1">
-      <Banner text={"CustomerTable"} />{" "}
+      <Banner text={"ক্রেতার পণ্য"} />{" "}
       <Container>
         <div className="flex gap-2 py-2 z-50 bg-white sticky top-0 ">
           <Link
@@ -32,7 +32,7 @@ const CustomerTable = () => {
           <thead>
             <tr>
               <th className=" px-0 w-5">ক্র</th>
-              <th className=" px-0">পন্যের নাম</th>
+              <th className=" px-0"> পণ্যের নাম</th>
               <th className=" px-0 w-[50px]">দর</th>
               <th className=" px-0 w-16">পরিমাণ</th>
               <th className=" px-0 w-16">মোট </th>

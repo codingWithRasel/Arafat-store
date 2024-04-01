@@ -36,7 +36,7 @@ const Update = () => {
         <div className="border px-2 py-3 rounded-md bg-neutral-50">
           <h1 className="mb-4 text-xl font-bold text-center">নতুন পণ্য যোগ</h1>
           <form onSubmit={handleSubmit}>
-            <div className=" flex flex-col items-center gap-3">
+            <div className=" flex flex-col gap-3">
               <div className=" w-full">
                 <div>
                   <input
@@ -80,12 +80,20 @@ const Update = () => {
                 </div>
               </div>
 
-              <button
-                className="bg-orange-400 p-2 w-1/2 text-white rounded-md"
-                type="submit"
-              >
-                সাবমিট
-              </button>
+              <div className=" justify-center gap-3 flex">
+                <button
+                  className="bg-orange-400 p-2 w-[40%] text-white rounded-md"
+                  type="submit"
+                >
+                  সাবমিট
+                </button>
+                <Link
+                  to={"/dashboard"}
+                  className=" bg-green-700 p-2   text-white rounded-md"
+                >
+                  পিছনে ফিরুন
+                </Link>
+              </div>
             </div>
           </form>
         </div>
