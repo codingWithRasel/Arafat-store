@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Store from "./Pages/Store";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { MenuContextProvider } from "./assets/DataContext";
 import Dashboard from "./Pages/Dashboard";
-import CustomerTable from "./components/CustomerTable";
 import ProductTable from "./components/ProductTable";
+import CustomerTable from "./components/CustomerTable";
+import { MenuContextProvider } from "./assets/DataContext";
+import Update from "./Pages/Update";
 
 function App() {
   return (
@@ -15,9 +15,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Store />}>
               <Route path="" element={<ProductTable />} />
-              <Route path="customerTable" element={<CustomerTable />} />
             </Route>
             <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/update" element={<Update />} />
+            <Route path="/customerTable" element={<CustomerTable />} />
           </Routes>
         </BrowserRouter>
       </div>

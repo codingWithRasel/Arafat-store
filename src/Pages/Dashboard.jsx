@@ -8,16 +8,19 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import { LiaStoreAltSolid } from "react-icons/lia";
 import { AiOutlineDashboard } from "react-icons/ai";
+import Banner from "../components/Banner";
+import Search from "../components/Search";
 const Dashboard = () => {
   const [search, setSearch] = useState("");
   const { data } = useMenuContext();
   return (
     <div>
-      <h1 className="bg-black text-white text-center py-3 text-4xl font-bold">
-        ড্যাশবোর্ড
-      </h1>
+      <Banner text={"ড্যাশবোর্ড"} />
       <Container>
-        <div className=" flex gap-2 my-2">
+        <div
+          className="mt-2
+         flex gap-2"
+        >
           <Link
             to="/"
             className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2 `}
@@ -36,19 +39,16 @@ const Dashboard = () => {
             </button>
           </Link>
         </div>
-        <div className="flex gap-2 my-2">
-          <InputGroup>
-            <Form.Control
-              placeholder="এখানে সার্চ করুন"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </InputGroup>
-          <Button
-            className="bg-green-900 text-white whitespace-nowrap text-sm"
-            variant="success"
-          >
-            নতুন পণ্য যোগ
-          </Button>
+        <div className=" flex gap-2 py-2 z-50 bg-white sticky top-0">
+          <Search onChange={(e) => setSearch(e.target.value)} />
+          <Link to={"/update"}>
+            <Button
+              className="bg-green-700 text-white  h-full whitespace-nowrap text-sm"
+              variant="success"
+            >
+              নতুন পণ্য যোগ
+            </Button>
+          </Link>
         </div>
         <Table striped bordered hover className=" text-sm text-center">
           <thead>

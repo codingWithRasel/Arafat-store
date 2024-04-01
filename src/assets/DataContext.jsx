@@ -29,13 +29,6 @@ export const MenuContextProvider = ({ children }) => {
       return item;
     });
     setClientList(updateClientList);
-    // let ind = -1;
-    // clientList.forEach((data, index) => {
-    //   if (data.name === m.name) ind = index;
-    // });
-    // const tempArr = clientList;
-    // tempArr[ind].qty = value;
-    // setClientList([...tempArr]);
   };
 
   const calculateTotalPrice = () => {
@@ -45,6 +38,7 @@ export const MenuContextProvider = ({ children }) => {
     <MenuContext.Provider
       value={{
         data,
+        setData,
         search,
         setSearch,
         clientList,
