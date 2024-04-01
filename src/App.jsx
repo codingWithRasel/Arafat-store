@@ -1,30 +1,28 @@
-import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Store from "./components/AlArafat/Store";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
-import Store from "./page/Store";
-import Dashboard from "./page/Dashboard";
+import { MenuContextProvider } from "./assets/DataContext";
+import Dashboard from "./components/AlArafat/Dashboard";
+import CustomerTable from "./components/AlArafat/CustomerTable";
+import ProductTable from "./components/AlArafat/ProductTable";
 
-const App = () => {
-
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://store-server-wodd.onrender.com/user")
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
+function App() {
   return (
-    <BrowserRouter>
-      <div className=" font-kalpurush">
-        <Routes>
-          <Route path="/" element={<Store data={data} />}></Route>
-          <Route path="/dashboard" element={<Dashboard data={data} />} />
-        </Routes>
+    <MenuContextProvider>
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Store />}>
+              <Route path="" element={<ProductTable />} />
+              <Route path="customerTable" element={<CustomerTable />} />
+            </Route>
+            <Route path="/Dashboard" element={<Dashboard />} />
+          </Routes>
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
+    </MenuContextProvider>
   );
-};
+}
 
 export default App;
