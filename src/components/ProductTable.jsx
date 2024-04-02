@@ -21,23 +21,27 @@ const ProductTable = () => {
           .filter((f) => {
             return search.toLowerCase() === "" ? f : f.name.includes(search);
           })
-          .map((e, i) => (
+          .map((m, i) => (
             <tr key={i}>
-              <td>{e.name}</td>
+              <td>{m.name}</td>
               <td>
-                {e.rate}
-                <sub className=" text-[10px]">/{e.unit}</sub>{" "}
+                {m.rate}
+                <sub className=" text-[10px]">/{m.unit}</sub>{" "}
               </td>
               <td className=" p-1">
-                <Button
+                <button
                   className={`${
-                    clientList.includes(e) ? "bg-green-600" : "bg-blue-500"
-                  } text-xs`}
-                  variant={clientList.includes(e) ? "success" : "primary"}
-                  onClick={() => handleAdd(e)}
+                    clientList.some((s) => s.id === m.id)
+                      ? "bg-green-600"
+                      : "bg-blue-500"
+                  } text-xs p-1 border text-white rounded-md`}
+                  onClick={() => handleAdd(m)}
                 >
-                  {clientList.includes(e) ? "যুক্ত হয়েছে" : "যুক্ত করুন"}
-                </Button>
+                  {}
+                  {clientList.some((s) => s.id === m.id)
+                    ? "যুক্ত হয়েছে"
+                    : "যুক্ত করুন"}
+                </button>
               </td>
             </tr>
           ))}

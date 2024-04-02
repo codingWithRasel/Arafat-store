@@ -33,7 +33,7 @@ const CustomerTable = () => {
             <tr>
               <th className=" px-0 w-5">ক্র</th>
               <th className=" px-0"> পণ্যের নাম</th>
-              <th className=" px-0 w-[50px]">দর</th>
+              <th className=" px-0 w-[52px]">দর</th>
               <th className=" px-0 w-16">পরিমাণ</th>
               <th className=" px-0 w-16">মোট </th>
             </tr>
