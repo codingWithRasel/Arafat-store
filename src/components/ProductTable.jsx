@@ -30,7 +30,6 @@ const ProductTable = () => {
               </td>
               <td className=" p-1">
                 <Button
-                  className={"text-xs px-2 py-[5px]"}
                   children={
                     clientList.some((s) => s.id === m.id)
                       ? "যুক্ত হয়েছে"

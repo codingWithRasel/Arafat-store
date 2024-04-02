@@ -8,16 +8,16 @@ import { LiaStoreAltSolid } from "react-icons/lia";
 const CustomerTable = () => {
   const { clientList, handleQty, calculateTotalPrice } = useMenuContext();
   return (
-    <div className=" mt-1">
+    <div>
       <Banner text={"ক্রেতার পণ্য"} />{" "}
       <Container>
         <div className="flex gap-2 py-2 z-50 bg-white sticky top-0 ">
           <Link
             to="/"
-            className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2 `}
+            className={`w-full  rounded-md text-xl bg-slate-300 text-center border  py-2 `}
           >
             <button>
-              <LiaStoreAltSolid className=" inline mb-2 -mr-2" /> স্টোর
+              <LiaStoreAltSolid className=" inline mb-2 text-2xl -mr-1" /> স্টোর
             </button>
           </Link>
         </div>

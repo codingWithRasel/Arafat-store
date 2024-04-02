@@ -11,6 +11,8 @@ import Button from "../components/Button";
 const Dashboard = () => {
   const [search, setSearch] = useState("");
   const { data } = useMenuContext();
+  const LinkStyleForPage =
+    "w-full  rounded-md text-xl bg-slate-300 text-center border  py-2 ";
   return (
     <div>
       <Banner text={"ড্যাশবোর্ড"} />
@@ -19,17 +21,11 @@ const Dashboard = () => {
           className="mt-2
          flex gap-2"
         >
-          <Link
-            to="/"
-            className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2 `}
-          >
-            <LiaStoreAltSolid className=" inline mb-2 -mr-2" /> স্টোর
+          <Link to="/" className={LinkStyleForPage}>
+            <LiaStoreAltSolid className=" inline mb-2 -mr-1 text-2xl" /> স্টোর
           </Link>
-          <Link
-            to="/dashboard"
-            className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2`}
-          >
-            <AiOutlineDashboard className=" inline mb-2" />
+          <Link to="/dashboard" className={LinkStyleForPage}>
+            <AiOutlineDashboard className=" inline mb-2 mr-1 text-2xl" />
             ড্যাশবোর্ড
           </Link>
         </div>
@@ -38,7 +34,7 @@ const Dashboard = () => {
           <Link to={"/update"}>
             <Button
               children={"নতুন পণ্য যোগ"}
-              className={"whitespace-nowrap text-sm"}
+              className={"whitespace-nowrap  h-full"}
               variant={"success"}
             />
           </Link>
@@ -68,11 +64,7 @@ const Dashboard = () => {
                     <sub className=" text-[10px]">/{e.unit}</sub>{" "}
                   </td>
                   <td className=" p-1">
-                    <Button
-                      className={"text-sm"}
-                      children={"আপডেট"}
-                      onClick={() => handleAdd(e)}
-                    />
+                    <Button children={"আপডেট"} onClick={() => handleAdd(e)} />
                   </td>
                 </tr>
               ))}

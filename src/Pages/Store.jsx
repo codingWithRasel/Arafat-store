@@ -8,26 +8,20 @@ import { useMenuContext } from "../assets/DataContext";
 import Banner from "../components/Banner";
 import Search from "../components/Search";
 import Button from "../components/Button";
-
+const LinkStyleForPage =
+  "w-full  rounded-md text-xl bg-slate-300 text-center border  py-2 ";
 const Store = () => {
   const { setSearch } = useMenuContext();
-
   return (
     <div>
       <Banner text={"স্টোর"} />
       <Container>
         <div className=" flex gap-2 mt-2">
-          <Link
-            to="/"
-            className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2 `}
-          >
-            <LiaStoreAltSolid className=" inline mb-2 -mr-2" /> স্টোর
+          <Link to="/" className={LinkStyleForPage}>
+            <LiaStoreAltSolid className=" inline mb-2 -mr-1 text-2xl" /> স্টোর
           </Link>
-          <Link
-            to="/dashboard"
-            className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2`}
-          >
-            <AiOutlineDashboard className=" inline mb-2 " />
+          <Link to="/dashboard" className={LinkStyleForPage}>
+            <AiOutlineDashboard className="mr-1 inline mb-2 text-2xl" />
             ড্যাশবোর্ড
           </Link>
         </div>

@@ -77,7 +77,7 @@ const Update = () => {
                 </div>
               </div>
 
-              <div className=" justify-center gap-3 flex">
+              <div className=" text-lg justify-center gap-3 flex">
                 <Button
                   children={"সাবমিট"}
                   type={"submit"}
@@ -85,7 +85,7 @@ const Update = () => {
                 />
                 <Link
                   to={"/dashboard"}
-                  className=" bg-green-700 p-2   text-white rounded-md"
+                  className=" bg-green-700 p-2 px-3   text-white rounded-md"
                 >
                   পিছনে ফিরুন
                 </Link>
