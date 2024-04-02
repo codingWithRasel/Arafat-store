@@ -34,7 +34,7 @@ const ProductTable = () => {
                     clientList.some((s) => s.id === m.id)
                       ? "bg-green-600"
                       : "bg-blue-500"
-                  } text-xs p-1 border text-white rounded-md`}
+                  } text-xs px-3 py-[5px] border text-white rounded-md`}
                   onClick={() => handleAdd(m)}
                 >
                   {}
