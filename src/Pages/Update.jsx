@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { Link, useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 const Update = () => {
   const unique_id = uuid();
   const navigate = useNavigate();
@@ -24,10 +25,6 @@ const Update = () => {
       .post("https://store-server-wodd.onrender.com/user/", product)
       .then((res) => navigate("/dashboard"))
       .catch((err) => console.log(err));
-
-    // e.preventDefault();
-    // setData();
-    // navigate("/dashboard");
   };
 
   return (
@@ -81,12 +78,11 @@ const Update = () => {
               </div>
 
               <div className=" justify-center gap-3 flex">
-                <button
-                  className="bg-orange-400 p-2 w-[40%] text-white rounded-md"
-                  type="submit"
-                >
-                  সাবমিট
-                </button>
+                <Button
+                  children={"সাবমিট"}
+                  type={"submit"}
+                  className={"p-2 bg-orange-400 hover:bg-orange-500 w-[40%]"}
+                />
                 <Link
                   to={"/dashboard"}
                   className=" bg-green-700 p-2   text-white rounded-md"

@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import Table from "react-bootstrap/Table";
-import InputGroup from "react-bootstrap/InputGroup";
-import Form from "react-bootstrap/Form";
-import { Button } from "react-bootstrap";
 import { useMenuContext } from "../assets/DataContext";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
@@ -10,6 +7,7 @@ import { LiaStoreAltSolid } from "react-icons/lia";
 import { AiOutlineDashboard } from "react-icons/ai";
 import Banner from "../components/Banner";
 import Search from "../components/Search";
+import Button from "../components/Button";
 const Dashboard = () => {
   const [search, setSearch] = useState("");
   const { data } = useMenuContext();
@@ -25,29 +23,24 @@ const Dashboard = () => {
             to="/"
             className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2 `}
           >
-            <button>
-              <LiaStoreAltSolid className=" inline mb-2 -mr-2" /> স্টোর
-            </button>
+            <LiaStoreAltSolid className=" inline mb-2 -mr-2" /> স্টোর
           </Link>
           <Link
             to="/dashboard"
             className={`w-full  rounded-md text-2xl bg-slate-300 text-center border  py-2`}
           >
-            <button>
-              <AiOutlineDashboard className=" inline mb-2" />
-              ড্যাশবোর্ড
-            </button>
+            <AiOutlineDashboard className=" inline mb-2" />
+            ড্যাশবোর্ড
           </Link>
         </div>
         <div className=" flex gap-2 py-2 z-50 bg-white sticky top-0">
           <Search onChange={(e) => setSearch(e.target.value)} />
           <Link to={"/update"}>
             <Button
-              className="bg-green-700 text-white  h-full whitespace-nowrap text-sm"
-              variant="success"
-            >
-              নতুন পণ্য যোগ
-            </Button>
+              children={"নতুন পণ্য যোগ"}
+              className={"whitespace-nowrap text-sm"}
+              variant={"success"}
+            />
           </Link>
         </div>
         <Table striped bordered hover className=" text-sm text-center">
@@ -76,12 +69,10 @@ const Dashboard = () => {
                   </td>
                   <td className=" p-1">
                     <Button
-                      className="bg-blue-500 text-sm"
-                      variant="primary"
+                      className={"text-sm"}
+                      children={"আপডেট"}
                       onClick={() => handleAdd(e)}
-                    >
-                      আপডেট
-                    </Button>
+                    />
                   </td>
                 </tr>
               ))}

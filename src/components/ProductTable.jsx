@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useMenuContext } from "../assets/DataContext";
+import Button from "./Button";
 
 const ProductTable = () => {
   const { data, search, handleAdd, clientList } = useMenuContext();
@@ -29,19 +29,20 @@ const ProductTable = () => {
                 <sub className=" text-[10px]">/{m.unit}</sub>{" "}
               </td>
               <td className=" p-1">
-                <button
-                  className={`${
+                <Button
+                  className={"text-xs px-2 py-[5px]"}
+                  children={
                     clientList.some((s) => s.id === m.id)
-                      ? "bg-green-600"
-                      : "bg-blue-500"
-                  } text-xs px-2 py-[5px] border text-white rounded-md`}
+                      ? "যুক্ত হয়েছে"
+                      : "যুক্ত করুন"
+                  }
                   onClick={() => handleAdd(m)}
-                >
-                  {}
-                  {clientList.some((s) => s.id === m.id)
-                    ? "যুক্ত হয়েছে"
-                    : "যুক্ত করুন"}
-                </button>
+                  variant={
+                    clientList.some((s) => s.id === m.id)
+                      ? "success"
+                      : "primary"
+                  }
+                />
               </td>
             </tr>
           ))}

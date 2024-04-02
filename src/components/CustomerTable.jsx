@@ -52,7 +52,7 @@ const CustomerTable = () => {
                   <input
                     className="bg-transparent placeholder:text-black outline-none text-center border-none w-16"
                     type="number"
-                    // value={m.qty}
+                    value={m.qty}
                     placeholder={m.qty}
                     onChange={(e) => handleQty(m, e.target.value)}
                   />
