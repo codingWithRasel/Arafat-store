@@ -16,7 +16,7 @@ const Button = ({ type, onClick, children, variant, className }) => {
       className={twMerge(
         `${
           variant ? variants[variant] : variants.primary
-        }  px-[10px] py-[6px] text-white rounded-md border duration-200 whitespace-nowrap, ${className}`
+        } px-[10px] py-[6px] text-white rounded-md border duration-200 whitespace-nowrap font-bold , ${className}`
       )}
     >
       {children}

@@ -28,7 +28,11 @@ const Store = () => {
         <div className="flex gap-2 py-2 z-50 bg-white sticky top-0 ">
           <Search onChange={(e) => setSearch(e.target.value)} />
           <Link to={"/customerTable"}>
-            <Button className="whitespace-nowrap " children={"ক্রেতার পণ্য"} />
+            <Button
+              className="whitespace-nowrap text-black"
+              children={"ক্রেতার পণ্য"}
+              variant={"warning"}
+            />
           </Link>
         </div>
         <Outlet />
